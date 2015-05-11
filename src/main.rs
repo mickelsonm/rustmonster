@@ -8,14 +8,43 @@ struct Point{
 fn main() {
     println!("Hello, world!");
 
+    basic_variables();
     basic_if_example();
     switch_example();
     for_loop_example();
     while_loop_example();
     infinite_loop_example();
+    we_call_a_function();
+}
+
+fn basic_variables(){
+    println!("using basic variables...");
+    let (x, y, z) = (1, 3, 5);
+    println!("x = {}, y = {}, z = {}", x, y, z);
+
+    //using a data type
+    let xx: i32 = 5;
+    println!("xx = {}", xx);
+
+    let name: &str = "peter";
+    println!("name = {}", name);
+
+    //using a mutable type
+    //without the 'mut' keyword it throws an error on reassignment
+    let mut yy = 5; // mut yy: i32
+    if yy == 5{ //if we don't read/do something with it...it throws a warning
+        yy = 10;
+    }
+    println!("yy = {}", yy);
+
+    //tuple: ordered list of a fixed size
+    let tuple = ("Frank", "Tom", "Norm");
+    let f = tuple.0;
+    println!("f = {}", f);
 }
 
 fn basic_if_example(){
+    println!("using basic if statement...");
     let name = "rusty";
     //this is kind of cool, hmm
     let is_rusty = if name == "rusty"{
@@ -82,4 +111,21 @@ fn infinite_loop_example(){
             break;
         }
     } 
+}
+
+fn we_call_a_function(){
+    println!("We call a function...");
+    let a = foo(42);
+    println!("a = {}", a);
+
+    void_function();
+}
+
+//this function returns a value
+fn foo(x: i32) -> i32 {
+    return x;
+}
+
+fn void_function() {
+    println!("calling a function that doesn't return anything");
 }
